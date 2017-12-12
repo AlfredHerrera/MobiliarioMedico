@@ -34,16 +34,16 @@
         <li><a [routerLink]="['about']">Nosotros</a></li>
         <li><a [routerLink]="['servicios']">Servicios</a></li>
         <li class="dropdown">
-          <a [routerLink]="['tienda']" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Portfolio <span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Portfolio <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="portfolio.html">Bancos</a></li>
-            <li><a href="portfolio.html">Carros</a></li>
-            <li><a href="portfolio.html">Consultorios</a></li>
-            <li><a href="portfolio.html">Gabinetes</a></li>
-            <li><a href="portfolio.html">Mesas de Exploración</a></li>
-            <li><a href="portfolio.html">Mobiliario Individual</a></li>
-            <li><a href="portfolio.html">Sillas</a></li>
-            <li><a href="portfolio.html">Vitrinas</a></li>
+            <li><a (click)="navegacion('bancos')">Bancos</a></li>
+            <li><a [routerLink]="['tienda', 'carros']">Carros</a></li>
+            <li><a [routerLink]="['tienda', 'consultorios']">Consultorios</a></li>
+            <li><a [routerLink]="['tienda', 'mesas']">Gabinetes</a></li>
+            <li><a [routerLink]="['tienda', 'exploracion']">Mesas de Exploración</a></li>
+            <li><a [routerLink]="['tienda', 'mobiliario']">Mobiliario Individual</a></li>
+            <li><a [routerLink]="['tienda', 'silla']">Sillas</a></li>
+            <li><a [routerLink]="['tienda', 'vitrinas']">Vitrinas</a></li>
           </ul>
         </li>
         <li><a [routerLink]="['contacto']">Contact</a></li>

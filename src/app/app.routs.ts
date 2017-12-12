@@ -10,7 +10,7 @@ const app_routes: Routes = [
   { path: 'about', component: AboutComponent },
   { path: 'servicios', component: ServiciosComponent },
   { path: 'contacto', component: ContactoComponent },
-  { path: 'tienda/id', component: TiendaComponent },
+  { path: 'tienda/:categoria', component: TiendaComponent },
   { path: '**', pathMatch: 'full', redirectTo: 'home' }
 ];
 

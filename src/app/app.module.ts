@@ -1,7 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { LoadingModule } from 'ngx-loading';
 
 //servicios
+import { DataService } from './servicios/data.service';
+
+//rutas
 import { app_routing } from './app.routs';
 
 
@@ -14,6 +18,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ServiciosComponent } from './components/servicios/servicios.component';
 import { ContactoComponent } from './components/contacto/contacto.component';
 import { TiendaComponent } from './components/tienda/tienda.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -28,9 +33,13 @@ import { TiendaComponent } from './components/tienda/tienda.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    LoadingModule,
     app_routing
   ],
-  providers: [],
+  providers: [
+    DataService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
