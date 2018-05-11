@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+declare function inicio ();
+declare function initialize();
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  constructor(public _route: Router) {
+   }
 
   ngOnInit() {
+    inicio();
+    initialize();
+  }
+
+  navegacion(termino: string) {
+
+    this._route.navigate(['tienda', termino]);
+
   }
 
 }

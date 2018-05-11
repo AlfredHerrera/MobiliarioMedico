@@ -1,55 +1,67 @@
 import { Component,  Input } from '@angular/core';
 import { DataService } from '../../servicios/data.service';
-import { ActivatedRoute } from '@angular/router';
-
+import { ActivatedRoute, Router } from '@angular/router';
+declare function inicio ();
 
 @Component({
   selector: 'app-tienda',
   templateUrl: './tienda.component.html',
   styles: []
 })
-export class TiendaComponent{
+export class TiendaComponent {
 
-  productos:any[] = []
+  productos: producto[] = [];
   public loading = false;
-  contador:string="";
-  productoIndividual:producto;
+  contador = '';
+  productoIndividual: producto;
 
 
   constructor( private activatedRoute: ActivatedRoute,
-               private data : DataService) {
-                 this.loading = true;
+               private data: DataService,
+                public _route: Router) {
+                inicio ();
+                this.loading = true;
                  this.getProductos();
 
    }
 
-   sumar(int:string){
+   sumar(int: string) {
      this.productoIndividual = this.productos[int];
    }
 
-
-    getProductos(){
+    getProductos() {
 
      this.activatedRoute.params.map( params => params['categoria'])
      .subscribe(  catego => {
          this.data.getCategoria(catego)
 
-         .subscribe( productos =>{
+         .subscribe( productos => {
 
              this.productos.length = 0;
-             for (let key$ in productos) {
+             // tslint:disable-next-line:forin
+             for (const key$ in productos) {
                this.productos.push(productos[key$]);
-
              }
                 this.loading = false;
-         })
-     })
+         });
+     });
+   }
+
+   mover() {
+    this._route.navigate(['contacto']);
    }
 
 }
 
-interface producto{
-  nombre:string,
-  imagen:string,
-  caracteristicas:any[]
+// tslint:disable-next-line:class-name
+interface producto {
+  nombre: string;
+  imagen: string;
+  caracteristicas: {
+    caracte1: string
+    caracte2: string
+    caracte3: string
+    caracte4: string
+    caracte5: string
+  };
 }

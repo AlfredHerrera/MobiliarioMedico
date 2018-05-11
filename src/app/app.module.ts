@@ -2,14 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LoadingModule } from 'ngx-loading';
 
-//servicios
+// servicios
 import { DataService } from './servicios/data.service';
 
-//rutas
+// rutas
 import { app_routing } from './app.routs';
 
 
-//components
+// components
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
